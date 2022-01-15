@@ -27,8 +27,10 @@ jobs:
 
     - uses: actions/upload-artifact@v2
       with:
-        name: Mod
+        name: Zombiefied
         path: |
           About
           Assemblies
           Defs
+          !HugsLib*
+          !0Harmony*
