@@ -1,4 +1,4 @@
-name: Build Mod
+name: Build
 
 on:
   push:
@@ -22,10 +22,11 @@ jobs:
     - name: Restore NuGet packages
       run: nuget restore Source/Zombiefied.sln
 
-    - name: Build mod
+    - name: Build
       run: msbuild Source/Zombiefied.sln /p:Configuration=Release
 
-    - uses: actions/upload-artifact@v2
+    - name: Upload Preview Mod
+      uses: actions/upload-artifact@v2
       with:
         name: Zombiefied
         path: |
