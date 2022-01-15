@@ -1,4 +1,4 @@
-name: Build Release
+name: Build Mod
 
 on:
   push:
@@ -19,14 +19,13 @@ jobs:
     - name: Setup NuGet.exe for use with actions
       uses: NuGet/setup-nuget@v1.0.5
 
-    - name: Restore NuGet Packages
+    - name: Restore NuGet packages
       run: nuget restore Source/Zombiefied.sln
 
-    - name: Build and Publish Web App
+    - name: Build mod
       run: msbuild Source/Zombiefied.sln /p:Configuration=Release
 
-    - name: Upload
-      uses: actions/upload-artifact@v2
+    - uses: "marvinpinto/action-automatic-releases@latest"
       with:
-        name: Build
-        path: /
+        repo_token: "${{ secrets.GITHUB_TOKEN }}"
+        prerelease: true
