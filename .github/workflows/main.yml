@@ -25,7 +25,10 @@ jobs:
     - name: Build mod
       run: msbuild Source/Zombiefied.sln /p:Configuration=Release
 
-    - uses: "marvinpinto/action-automatic-releases@latest"
+    - uses: actions/upload-artifact@v2
       with:
-        repo_token: "${{ secrets.GITHUB_TOKEN }}"
-        prerelease: true
+        name: Mod
+        path: |
+          About
+          Assemblies
+          Defs
