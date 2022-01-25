@@ -21,8 +21,6 @@ namespace Zombiefied
                 maxNumMeleeAttacks = Rand.Range(1, 4)
             };
         }
-            return null;
-        }
 
         public Pawn BestPawnToHuntForPredator(Pawn_Zombiefied predator, float range = 7f)
         {
