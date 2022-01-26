@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+  <StorytellerDef ParentName="BaseStoryteller">
+    <defName>Zombiefied_Robert</defName>
+    <label>Rotting Robert</label>
+    <description>It's Robert</description>
+    <portraitLarge>Things/Storyteller/RottingRobert</portraitLarge>
+    <portraitTiny>Things/Storyteller/RottingRobertTiny</portraitTiny>
+    <comps Inherit="False">
+      <li Class="Zombiefied.StorytellerCompProperties_HordeWave" />
+    </comps>
+  </StorytellerDef>
+</Defs>

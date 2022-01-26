@@ -66,6 +66,13 @@ namespace Zombiefied
             }
             return result;
         }
+        private void ZombiefiePawn(Pawn pawn, IntVec3 location, Map map, Rot4 rotation)
+        {
+            Pawn_Zombiefied zombie = (Pawn_Zombiefied)GenSpawn.Spawn(pawn, location, map, rotation);
+            if (zombie == null) return;
+            zombie.FixZombie();
+            zombie.health.AddHediff(HediffDef.Named("ZombiefiedFeral"));
+        }
         protected override bool TryExecuteWorker(IncidentParms parms)
         {
             Map map = (Map)parms.target;
@@ -120,17 +127,17 @@ namespace Zombiefied
                 IntVec3 loc = CellFinder.RandomClosewalkCellNear(intVec, map, 10, null);
                 pawn.SetFactionDirect(zFaction);
                 pawn.apparel.DestroyAll();
-                Pawn_Zombiefied zomb = (Pawn_Zombiefied)GenSpawn.Spawn(pawn, loc, map, rot);
-                if (zomb != null)
-                {
-                    zomb.FixZombie();
-                }
+                ZombiefiePawn(pawn, loc, map, rot);
             }
 
             if (ZombiefiedMod.zombieRaidNotifications)
             {
-                Find.LetterStack.ReceiveLetter("Zombies", "Some zombies walked into your territory. You might want to deal with them before they deal with you."
-                , LetterDefOf.NeutralEvent, list[0], null);
+                Find.LetterStack.ReceiveLetter(
+                    "Zombies", 
+                    "Some zombies walked into your territory. You might want to deal with them before they deal with you.", 
+                    LetterDefOf.ThreatSmall, 
+                    list
+                );
                 Find.TickManager.slower.SignalForceNormalSpeedShort();
             }
             LessonAutoActivator.TeachOpportunity(ConceptDefOf.ForbiddingDoors, OpportunityType.Critical);

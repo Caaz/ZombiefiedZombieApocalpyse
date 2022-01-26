@@ -1,20 +1,32 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
 
-<HediffDef>
-	<defaultLabelColor>(0.5, 0.7, 0.5)</defaultLabelColor>
-    <defName>Zombiefied</defName>
-    <label>zombiefied</label>
-    <labelNoun>zombiefied</labelNoun>
-	<description>Bacterial infection in a wound. Without treatment, the bacteria will multiply, killing local tissue, and eventually causing blood poisoning and death.
-\nThrough aeons of human warfare, infections have often taken more lives than the wounds themselves.</description>
-    <stages>
-      <li>
-		<becomeVisible>false</becomeVisible>
-        <painFactor>0</painFactor>
-      </li>
-    </stages>
-  </HediffDef>
+	<HediffDef>
+		<defaultLabelColor>(0.5, 0.7, 0.5)</defaultLabelColor>
+		<defName>Zombiefied</defName>
+		<label>zombiefied</label>
+		<labelNoun>zombiefied</labelNoun>
+		<description>Bacterial infection in a wound. Without treatment, the bacteria will multiply, killing local tissue, and eventually causing blood poisoning and death.\nThrough aeons of human warfare, infections have often taken more lives than the wounds themselves.</description>
+		<stages>
+			<li>
+				<becomeVisible>false</becomeVisible>
+				<painFactor>0</painFactor>
+			</li>
+		</stages>
+	</HediffDef>
+	<HediffDef>
+		<defName>ZombiefiedFeral</defName>
+		<label>Feral</label>
+		<labelNoun>feral</labelNoun>
+		<description>Something seems to have heightened this zombie's senses.</description>
+		<defaultLabelColor>(1, 0.2, 0.2)</defaultLabelColor>
+		<stages>
+			<li>
+				<becomeVisible>true</becomeVisible>
+				<painFactor>0</painFactor>
+			</li>
+		</stages>
+	</HediffDef>
 
 </Defs>
